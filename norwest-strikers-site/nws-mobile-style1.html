@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Norwest Strikers — Mobile Style 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red: #D62839;
+  --red-dark: #A31E2C;
+  --black: #0D0D0D;
+  --near-black: #111318;
+  --charcoal: #1C1F27;
+  --mid: #2C303A;
+  --slate: #3D424F;
+  --muted: #6B7280;
+  --silver: #9CA3AF;
+  --white: #FFFFFF;
+  --green: #4ADE80;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--near-black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+}
+
+/* ── MOBILE NAV ── */
+.mobile-nav {
+  background: var(--black);
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--charcoal);
+}
+.mobile-logo { display: flex; align-items: center; gap: 10px; }
+.mobile-badge {
+  width: 36px; height: 36px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.mobile-club-name { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.1em; }
+.mobile-club-sub { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-family: var(--font-mono); }
+.hamburger { display: flex; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+
+/* ── HERO MOBILE ── */
+.hero-mobile {
+  background: var(--black);
+  padding: 28px 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-mobile::before {
+  content: 'NWS';
+  position: absolute;
+  right: -20px;
+  bottom: 60px;
+  font-family: var(--font-display);
+  font-size: 160px;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+.hero-eyebrow-m {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.pulse { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.hero-headline-m {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.hero-headline-m em { color: var(--red); font-style: normal; }
+.hero-sub-m { font-size: 14px; color: var(--silver); line-height: 1.65; margin-bottom: 24px; }
+.hero-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-red {
+  background: var(--red); color: var(--white);
+  padding: 12px 24px; border-radius: 4px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: var(--font-body);
+}
+.btn-ghost-m {
+  background: transparent; color: var(--silver);
+  padding: 12px 18px; border-radius: 4px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  border: 1px solid var(--slate);
+  text-decoration: none; cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* ── NEXT MATCH CARD ── */
+.next-match-card {
+  background: var(--red);
+  margin: 0 20px;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: -1px;
+}
+.nm-label-m {
+  font-family: var(--font-mono);
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  opacity: 0.75; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 6px;
+}
+.nm-teams-m { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.06em; margin-bottom: 14px; line-height: 1.1; }
+.nm-row { display: flex; gap: 20px; }
+.nm-item-m { }
+.nm-val { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.08em; }
+.nm-key { font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.65; font-family: var(--font-mono); margin-top: 1px; }
+
+/* ── TICKER MOBILE ── */
+.ticker-mobile {
+  background: var(--charcoal);
+  padding: 12px 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-top: 1px solid var(--mid);
+  border-bottom: 1px solid var(--mid);
+  margin-top: 16px;
+}
+.ticker-label-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.18em; color: var(--red); text-transform: uppercase; flex-shrink: 0; padding-right: 14px; border-right: 1px solid var(--slate); margin-right: 14px; }
+.ticker-inner { display: flex; gap: 32px; animation: ticker 22s linear infinite; white-space: nowrap; }
+@keyframes ticker { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+.ticker-item-m { font-size: 11px; color: var(--silver); display: flex; align-items: center; gap: 8px; }
+.ti-score { font-family: var(--font-mono); color: var(--white); font-size: 11px; }
+
+/* ── SECTIONS ── */
+.section-m { padding: 32px 20px; }
+.section-eyebrow-m { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.section-title-m { font-family: var(--font-display); font-size: 36px; letter-spacing: 0.04em; line-height: 1; margin-bottom: 20px; }
+.section-sub-m { font-size: 13px; color: var(--silver); line-height: 1.65; margin-bottom: 20px; }
+.see-all { font-size: 11px; font-weight: 600; color: var(--red); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+
+/* ── TEAMS SCROLL ── */
+.teams-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; margin: 0 -20px; padding: 0 20px 8px; }
+.teams-scroll::-webkit-scrollbar { display: none; }
+.team-card-m {
+  background: var(--charcoal);
+  border-radius: 8px;
+  padding: 20px 18px;
+  min-width: 160px;
+  flex-shrink: 0;
+  border-bottom: 3px solid var(--red);
+  cursor: pointer;
+}
+.team-label-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.team-name-m { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.04em; margin-bottom: 10px; line-height: 1.1; }
+.team-stat-m { font-size: 11px; color: var(--silver); margin-bottom: 3px; }
+.team-stat-m strong { color: var(--white); }
+
+/* ── FIXTURES MOBILE ── */
+.fix-list-m { display: flex; flex-direction: column; gap: 8px; }
+.fix-row-m {
+  background: var(--charcoal);
+  border-radius: 8px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--slate);
+  cursor: pointer;
+}
+.fix-row-m.win { border-left-color: var(--green); }
+.fix-row-m.loss { border-left-color: var(--red); }
+.fix-row-m.upcoming { border-left-color: var(--slate); }
+.fix-header-m { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.fix-date-m { font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.fix-score-m { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; }
+.fix-score-m .win { color: var(--green); }
+.fix-score-m .loss { color: var(--red); }
+.fix-teams-m { font-size: 13px; font-weight: 600; color: var(--white); }
+.fix-badge-m {
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 100px; margin-top: 6px; display: inline-block;
+}
+.fix-badge-m.win { background: rgba(74,222,128,0.12); color: var(--green); }
+.fix-badge-m.loss { background: rgba(214,40,57,0.12); color: var(--red); }
+.fix-badge-m.upcoming { background: rgba(255,255,255,0.06); color: var(--silver); }
+
+/* ── AUTOMATORR SPOTLIGHT ── */
+.auto-spotlight {
+  background: var(--charcoal);
+  margin: 0 20px;
+  border-radius: 8px;
+  padding: 24px 20px;
+  border-top: 3px solid var(--red);
+  margin-bottom: 4px;
+}
+.auto-badge-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.auto-title-m { font-family: var(--font-display); font-size: 28px; letter-spacing: 0.06em; margin-bottom: 8px; }
+.auto-sub-m { font-size: 12px; color: var(--silver); line-height: 1.65; margin-bottom: 16px; }
+.auto-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.auto-tag { background: var(--mid); color: var(--silver); font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+.auto-logo-m { background: var(--red); border-radius: 6px; padding: 12px 16px; text-align: center; margin-bottom: 16px; }
+.auto-logo-name-m { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.12em; }
+.auto-logo-sub-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+/* ── MERCH SCROLL ── */
+.merch-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; margin: 0 -20px; padding: 0 20px 8px; }
+.merch-scroll::-webkit-scrollbar { display: none; }
+.merch-card-m {
+  background: var(--charcoal);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 160px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.merch-img-m {
+  height: 140px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 32px; letter-spacing: 0.1em;
+  position: relative;
+}
+.mi-1 { background: linear-gradient(135deg, #1a0a0e, var(--red)); color: rgba(255,255,255,0.06); }
+.mi-2 { background: linear-gradient(135deg, var(--red), #7B0E18); color: rgba(255,255,255,0.06); }
+.mi-3 { background: linear-gradient(135deg, #2d2d2d, #4a4a4a); color: rgba(255,255,255,0.05); }
+.mi-4 { background: linear-gradient(135deg, #1a1a2e, var(--charcoal)); color: rgba(255,255,255,0.05); }
+.merch-badge-m { position: absolute; top: 8px; right: 8px; background: var(--red); color: var(--white); font-size: 7px; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; }
+.merch-info-m { padding: 12px 14px; }
+.merch-name-m { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+.merch-price-m { font-family: var(--font-mono); color: var(--red); font-size: 13px; }
+.merch-orig-m { font-family: var(--font-mono); color: var(--muted); font-size: 10px; text-decoration: line-through; margin-right: 4px; }
+
+/* ── NEWS MOBILE ── */
+.news-list-m { display: flex; flex-direction: column; gap: 10px; }
+.news-card-m {
+  background: var(--charcoal);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+.news-img-m {
+  width: 90px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 20px;
+}
+.ni-red { background: linear-gradient(135deg, #1a0a0e, #C8192B30); color: rgba(200,25,43,0.15); }
+.ni-dark { background: linear-gradient(135deg, #111, #2a2a2a); color: rgba(255,255,255,0.05); }
+.ni-green { background: linear-gradient(135deg, #0a1a0f, #1A7A4A30); color: rgba(26,122,74,0.15); }
+.news-content-m { padding: 14px 14px; flex: 1; }
+.news-tag-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 5px; }
+.news-title-m { font-size: 13px; font-weight: 600; line-height: 1.35; color: var(--white); margin-bottom: 5px; }
+.news-meta-m { font-family: var(--font-mono); font-size: 9px; color: var(--muted); }
+
+/* ── JOIN STRIP ── */
+.join-strip {
+  background: var(--red);
+  padding: 28px 20px;
+  text-align: center;
+}
+.join-strip h3 { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.06em; margin-bottom: 8px; }
+.join-strip p { font-size: 12px; opacity: 0.8; margin-bottom: 16px; }
+.join-input-m {
+  width: 100%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  outline: none;
+  margin-bottom: 8px;
+}
+.join-input-m::placeholder { color: rgba(255,255,255,0.5); }
+.btn-white-m {
+  width: 100%;
+  background: var(--white);
+  color: var(--red);
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+/* ── SPONSOR STRIP ── */
+.sponsor-strip-m { background: var(--black); padding: 20px; border-top: 1px solid var(--charcoal); }
+.sp-label-m { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.sp-logos { display: flex; flex-wrap: wrap; gap: 8px; }
+.sp-chip { background: var(--charcoal); color: var(--silver); font-family: var(--font-mono); font-size: 9px; padding: 5px 12px; border-radius: 100px; letter-spacing: 0.05em; }
+.sp-chip.primary { background: var(--red); color: var(--white); }
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  background: var(--black);
+  border-top: 1px solid var(--charcoal);
+  display: flex;
+  z-index: 100;
+}
+.bn-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  gap: 3px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.bn-item.active { color: var(--red); }
+.bn-item:hover { color: var(--white); }
+.bn-icon { font-size: 18px; }
+
+/* BG sections */
+.bg-charcoal { background: var(--charcoal); }
+.bg-black { background: var(--black); }
+.section-header-row-m { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="mobile-nav">
+  <div class="mobile-logo">
+    <div class="mobile-badge">NWS</div>
+    <div>
+      <div class="mobile-club-name">NORWEST STRIKERS</div>
+      <div class="mobile-club-sub">Hills Hockey Club</div>
+    </div>
+  </div>
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-mobile">
+  <div class="hero-eyebrow-m"><div class="pulse"></div> 2025 Season · Live Now</div>
+  <h1 class="hero-headline-m">PLAY<br>WITH<br><em>FIRE.</em></h1>
+  <p class="hero-sub-m">Norwest Strikers Hockey Club. Hills District's home of hockey at The Gables Complex.</p>
+  <div class="hero-btns">
+    <a href="#" class="btn-red">Join the Club</a>
+    <a href="#" class="btn-ghost-m">Fixtures</a>
+  </div>
+</div>
+
+<!-- NEXT MATCH -->
+<div class="next-match-card">
+  <div class="nm-label-m"><div class="pulse"></div> Next Match — Men's Premier League</div>
+  <div class="nm-teams-m">Norwest Strikers<br>vs Beecroft HC</div>
+  <div class="nm-row">
+    <div class="nm-item-m"><div class="nm-val">SAT 21 JUN</div><div class="nm-key">Date</div></div>
+    <div class="nm-item-m"><div class="nm-val">2:30 PM</div><div class="nm-key">Kick Off</div></div>
+    <div class="nm-item-m"><div class="nm-val">Gables</div><div class="nm-key">Venue</div></div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-mobile">
+  <div class="ticker-label-m">Results</div>
+  <div class="ticker-inner">
+    <div class="ticker-item-m">M1 vs Castle Hill <span class="ti-score">4–2 WIN</span></div>
+    <span style="color:var(--slate)">·</span>
+    <div class="ticker-item-m">W1 vs Ryde <span class="ti-score">1–3 LOSS</span></div>
+    <span style="color:var(--slate)">·</span>
+    <div class="ticker-item-m">U16 vs Parramatta <span class="ti-score">3–3 DRAW</span></div>
+    <span style="color:var(--slate)">·</span>
+    <div class="ticker-item-m">M2 vs Penrith <span class="ti-score">5–1 WIN</span></div>
+    <span style="color:var(--slate)">·</span>
+    <div class="ticker-item-m">M1 vs Castle Hill <span class="ti-score">4–2 WIN</span></div>
+    <span style="color:var(--slate)">·</span>
+    <div class="ticker-item-m">W1 vs Ryde <span class="ti-score">1–3 LOSS</span></div>
+  </div>
+</div>
+
+<!-- AUTOMATORR -->
+<div class="section-m bg-black" style="padding-bottom:12px;">
+  <div class="auto-spotlight">
+    <div class="auto-badge-m">● Principal Technology Partner</div>
+    <div class="auto-title-m">Powered by Automatorr</div>
+    <div class="auto-sub-m">Our official tech partner helping NWS streamline operations and build a smarter club behind the scenes.</div>
+    <div class="auto-tags">
+      <span class="auto-tag">Homepage Sponsor</span>
+      <span class="auto-tag">Match Day Rights</span>
+      <span class="auto-tag">Player of the Week</span>
+    </div>
+    <div class="auto-logo-m">
+      <div class="auto-logo-name-m">AUTOMATORR</div>
+      <div class="auto-logo-sub-m">Official Tech Partner · NWS 2025</div>
+    </div>
+    <a href="#" class="btn-red" style="display:block;text-align:center;font-size:11px;padding:10px;">Learn About Automatorr</a>
+  </div>
+</div>
+
+<!-- TEAMS -->
+<div class="section-m bg-charcoal">
+  <div class="section-header-row-m">
+    <div>
+      <div class="section-eyebrow-m">Our Teams</div>
+      <div class="section-title-m">Find Your<br>Squad</div>
+    </div>
+    <a href="#" class="see-all">All Teams →</a>
+  </div>
+  <div class="teams-scroll">
+    <div class="team-card-m">
+      <div class="team-label-m">Men's Premier</div>
+      <div class="team-name-m">Men's 1st XI</div>
+      <div class="team-stat-m">Record: <strong>8W 3L 1D</strong></div>
+      <div class="team-stat-m">Position: <strong>3rd</strong></div>
+    </div>
+    <div class="team-card-m">
+      <div class="team-label-m">Women's Premier</div>
+      <div class="team-name-m">Women's 1st XI</div>
+      <div class="team-stat-m">Record: <strong>6W 4L 2D</strong></div>
+      <div class="team-stat-m">Position: <strong>5th</strong></div>
+    </div>
+    <div class="team-card-m">
+      <div class="team-label-m">Junior Development</div>
+      <div class="team-name-m">U12 — U18</div>
+      <div class="team-stat-m">Teams: <strong>6 squads</strong></div>
+      <div class="team-stat-m">Members: <strong>80+</strong></div>
+    </div>
+    <div class="team-card-m">
+      <div class="team-label-m">All Abilities</div>
+      <div class="team-name-m">Social &amp; Mixed</div>
+      <div class="team-stat-m">Format: <strong>Open</strong></div>
+      <div class="team-stat-m">Night: <strong>Fridays</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- FIXTURES -->
+<div class="section-m">
+  <div class="section-header-row-m">
+    <div>
+      <div class="section-eyebrow-m">Fixtures & Results</div>
+      <div class="section-title-m">On the<br>Pitch</div>
+    </div>
+    <a href="#" class="see-all">All Fixtures →</a>
+  </div>
+  <div class="fix-list-m">
+    <div class="fix-row-m win">
+      <div class="fix-header-m">
+        <div class="fix-date-m">Sat 14 Jun</div>
+        <div class="fix-score-m"><span class="win">4</span> — <span>2</span></div>
+      </div>
+      <div class="fix-teams-m">NWS Men's 1 vs Castle Hill HC</div>
+      <div class="fix-badge-m win">Win</div>
+    </div>
+    <div class="fix-row-m loss">
+      <div class="fix-header-m">
+        <div class="fix-date-m">Sat 14 Jun</div>
+        <div class="fix-score-m"><span>1</span> — <span class="loss">3</span></div>
+      </div>
+      <div class="fix-teams-m">NWS Women's 1 vs Ryde HC</div>
+      <div class="fix-badge-m loss">Loss</div>
+    </div>
+    <div class="fix-row-m win">
+      <div class="fix-header-m">
+        <div class="fix-date-m">Sat 14 Jun</div>
+        <div class="fix-score-m"><span class="win">5</span> — <span>1</span></div>
+      </div>
+      <div class="fix-teams-m">NWS Men's 2 vs Penrith HC</div>
+      <div class="fix-badge-m win">Win</div>
+    </div>
+    <div class="fix-row-m upcoming">
+      <div class="fix-header-m">
+        <div class="fix-date-m">Sat 21 Jun</div>
+        <div style="font-size:13px;color:var(--silver);font-family:var(--font-mono);">2:30 PM</div>
+      </div>
+      <div class="fix-teams-m">NWS Men's 1 vs Beecroft HC</div>
+      <div class="fix-badge-m upcoming">Upcoming</div>
+    </div>
+  </div>
+</div>
+
+<!-- MERCH -->
+<div class="section-m bg-charcoal">
+  <div class="section-header-row-m">
+    <div>
+      <div class="section-eyebrow-m">Club Shop</div>
+      <div class="section-title-m">Wear the<br>Stripes</div>
+    </div>
+    <a href="#" class="see-all">Shop →</a>
+  </div>
+  <div class="merch-scroll">
+    <div class="merch-card-m">
+      <div class="merch-img-m mi-1"><div class="merch-badge-m">New</div>KIT</div>
+      <div class="merch-info-m">
+        <div class="merch-name-m">2025 Home Jersey — Men's</div>
+        <div><span class="merch-orig-m">$95</span><span class="merch-price-m">$79</span></div>
+      </div>
+    </div>
+    <div class="merch-card-m">
+      <div class="merch-img-m mi-2">KIT</div>
+      <div class="merch-info-m">
+        <div class="merch-name-m">2025 Home Jersey — Women's</div>
+        <div><span class="merch-price-m">$79</span></div>
+      </div>
+    </div>
+    <div class="merch-card-m">
+      <div class="merch-img-m mi-3">SHORTS</div>
+      <div class="merch-info-m">
+        <div class="merch-name-m">Training Shorts — Unisex</div>
+        <div><span class="merch-price-m">$45</span></div>
+      </div>
+    </div>
+    <div class="merch-card-m">
+      <div class="merch-img-m mi-4"><div class="merch-badge-m">New</div>CAP</div>
+      <div class="merch-info-m">
+        <div class="merch-name-m">NWS Cap — Adjustable</div>
+        <div><span class="merch-price-m">$32</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div class="section-m">
+  <div class="section-header-row-m">
+    <div>
+      <div class="section-eyebrow-m">Latest News</div>
+      <div class="section-title-m">Club News</div>
+    </div>
+    <a href="#" class="see-all">All News →</a>
+  </div>
+  <div class="news-list-m">
+    <div class="news-card-m">
+      <div class="news-img-m ni-red">🏟️</div>
+      <div class="news-content-m">
+        <div class="news-tag-m">Facility</div>
+        <div class="news-title-m">The Gables Complex is Open — What It Means for NWS</div>
+        <div class="news-meta-m">15 Mar 2025</div>
+      </div>
+    </div>
+    <div class="news-card-m">
+      <div class="news-img-m ni-dark">⚙️</div>
+      <div class="news-content-m">
+        <div class="news-tag-m">Sponsor</div>
+        <div class="news-title-m">Automatorr joins NWS as Principal Tech Partner for 2025</div>
+        <div class="news-meta-m">2 Jun 2025</div>
+      </div>
+    </div>
+    <div class="news-card-m">
+      <div class="news-img-m ni-green">⚽</div>
+      <div class="news-content-m">
+        <div class="news-tag-m">Match Report</div>
+        <div class="news-title-m">4–2 Win Over Castle Hill — Player Ratings Inside</div>
+        <div class="news-meta-m">14 Jun 2025</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOIN -->
+<div class="join-strip">
+  <h3>Join the Inner Circle</h3>
+  <p>Fixtures, results, club news. No spam. Just hockey.</p>
+  <input class="join-input-m" type="email" placeholder="Your email address">
+  <button class="btn-white-m">Subscribe</button>
+</div>
+
+<!-- SPONSORS -->
+<div class="sponsor-strip-m">
+  <div class="sp-label-m">Proudly supported by</div>
+  <div class="sp-logos">
+    <span class="sp-chip primary">Automatorr — Principal Partner</span>
+    <span class="sp-chip">Bankstown Sports</span>
+    <span class="sp-chip">Stockland</span>
+    <span class="sp-chip">Zel Finance</span>
+    <span class="sp-chip">Hawkesbury Brewing Co.</span>
+    <span class="sp-chip">Cartridge World</span>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a href="#" class="bn-item active"><span class="bn-icon">🏠</span>Home</a>
+  <a href="#" class="bn-item"><span class="bn-icon">🏑</span>Teams</a>
+  <a href="#" class="bn-item"><span class="bn-icon">📅</span>Fixtures</a>
+  <a href="#" class="bn-item"><span class="bn-icon">🛒</span>Shop</a>
+  <a href="#" class="bn-item"><span class="bn-icon">☰</span>More</a>
+</nav>
+
+<!-- ===== GLOBAL SITE NAV (hamburger) — injected ===== -->
+<style>
+  #gsn-btn{
+    position:fixed; top:18px; right:18px; z-index:99999;
+    width:48px; height:48px; border-radius:10px;
+    background:rgba(15,23,42,0.92); border:1px solid rgba(255,255,255,0.15);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:5px; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,0.35);
+  }
+  #gsn-btn span{ display:block; width:22px; height:2px; background:#fff; border-radius:2px; transition:.25s; }
+  #gsn-btn.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  #gsn-btn.open span:nth-child(2){ opacity:0; }
+  #gsn-btn.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  #gsn-overlay{
+    position:fixed; inset:0; z-index:99998;
+    background:rgba(8,12,20,0.97);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden; transition:opacity .25s ease;
+  }
+  #gsn-overlay.open{ opacity:1; visibility:visible; }
+  #gsn-overlay .gsn-inner{ width:100%; max-width:480px; padding:24px; }
+  #gsn-overlay .gsn-eyebrow{
+    color:#94a3b8; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:18px; text-align:center; font-family:Arial,Helvetica,sans-serif;
+  }
+  #gsn-overlay ul{ list-style:none; margin:0; padding:0; }
+  #gsn-overlay li{ border-bottom:1px solid rgba(255,255,255,0.08); }
+  #gsn-overlay a{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 6px; color:#f1f5f9; text-decoration:none;
+    font-family:Arial,Helvetica,sans-serif; font-size:18px; font-weight:600;
+    transition:.2s;
+  }
+  #gsn-overlay a:hover{ color:#fbbf24; padding-left:14px; }
+  #gsn-overlay a small{
+    display:block; font-size:11px; font-weight:400; color:#94a3b8; margin-top:2px;
+  }
+  #gsn-overlay a.current{ color:#fbbf24; }
+  #gsn-overlay a.current::after{ content:"● current"; font-size:10px; color:#fbbf24; font-weight:400; }
+</style>
+
+<button id="gsn-btn" aria-label="Open site menu"><span></span><span></span><span></span></button>
+
+<div id="gsn-overlay">
+  <div class="gsn-inner">
+    <div class="gsn-eyebrow">Norwest Strikers — Concept Pages</div>
+    <ul>
+      <li><a href="nws-homepage-mockup.html" data-page="nws-homepage-mockup.html">Homepage — Concept A<small>Original homepage mockup</small></a></li>
+      <li><a href="nws-homepage-mockup_1.html" data-page="nws-homepage-mockup_1.html">Homepage — Concept B<small>Alternate homepage mockup</small></a></li>
+      <li><a href="nws-homepage-style2.html" data-page="nws-homepage-style2.html">Homepage — Style 2<small>Desktop design variant</small></a></li>
+      <li><a href="nws-homepage-style3.html" data-page="nws-homepage-style3.html">Homepage — Style 3<small>Desktop design variant</small></a></li>
+      <li><a href="nws-mobile-style1.html" data-page="nws-mobile-style1.html">Mobile — Style 1<small>Mobile design variant</small></a></li>
+      <li><a href="nws-mobile-style2.html" data-page="nws-mobile-style2.html">Mobile — Style 2<small>Mobile design variant</small></a></li>
+      <li><a href="nws-shop.html" data-page="nws-shop.html">Club Shop<small>Shop page</small></a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('gsn-btn');
+  var overlay = document.getElementById('gsn-overlay');
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  var current = location.pathname.split('/').pop();
+  document.querySelectorAll('#gsn-overlay a').forEach(function(a){
+    if(a.getAttribute('data-page') === current){ a.classList.add('current'); }
+  });
+})();
+</script>
+<!-- ===== END GLOBAL SITE NAV ===== -->
+
+</body>
+</html>
